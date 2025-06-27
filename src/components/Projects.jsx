@@ -3,14 +3,14 @@
 // Data proyek bisa diletakkan di sini atau diambil dari API
 const projectData = [
   {
-    title: "Project Website E-commerce",
-    description: "Website toko online yang dibangun dengan Next.js dan terhubung ke sistem pembayaran.",
+    title: "not available",
+    description: "soon",
     image: "/project1.png", // Ganti dengan screenshot proyek Anda
     link: "#" // Ganti dengan link ke proyek
   },
   {
-    title: "Aplikasi Task Manager",
-    description: "Aplikasi untuk mengatur tugas harian dengan fitur drag-and-drop.",
+    title: "not avalable",
+    description: "soon",
     image: "/project2.png",
     link: "#"
   },

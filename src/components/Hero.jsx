@@ -4,8 +4,18 @@ import Image from 'next/image';
 import { Typewriter } from 'react-simple-typewriter';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaSpotify } from 'react-icons/fa';
-
-const techStack = ['React', 'Next.js', 'Tailwind CSS', 'Laravel', 'MySQL'];
+import {
+  FaReact,
+  FaLaravel,
+  FaCss3Alt,
+  FaDatabase,
+} from 'react-icons/fa';
+import { SiTailwindcss, SiNextdotjs, SiMysql } from 'react-icons/si';
+const techStack = [  { name: 'React', icon: <FaReact className="text-cyan-400" /> },
+  { name: 'Next.js', icon: <SiNextdotjs className="text-white" /> },
+  { name: 'Tailwind CSS', icon: <SiTailwindcss className="text-teal-400" /> },
+  { name: 'Laravel', icon: <FaLaravel className="text-red-500" /> },
+  { name: 'MySQL', icon: <SiMysql className="text-yellow-400" /> },];
 
 const Hero = () => {
   const getGreeting = () => {
@@ -95,22 +105,23 @@ const Hero = () => {
           Lihat Portofolio
         </motion.a>
 
-        {/* Tech Stack */}
-        <div className="flex flex-wrap gap-3 justify-center text-sm mb-6">
-          {techStack.map((tech) => (
-            <span
-              key={tech}
-              className="px-3 py-1 bg-gray-800 text-white rounded-full  border-teal-500 hover:bg-black"
-            >
-              {tech}
-            </span>
-          ))}
-        </div>
+        <div className="flex flex-wrap justify-center gap-4 mb-6">
+  {techStack.map((tech, index) => (
+    <div
+      key={index}
+      className="flex items-center gap-2 px-4 py-2 bg-gray-800 rounded-full hover:bg-black transition"
+    >
+      <span className="text-xl">{tech.icon}</span>
+      <span className="text-white text-sm font-medium">{tech.name}</span>
+    </div>
+  ))}
+</div>
+
 
         {/* Ikon Sosial */}
         <div className="flex justify-center gap-6 mt-4">
           <motion.a
-            href="https://github.com/yourusername"
+            href="https://github.com/AryaPutra-182"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.2 }}
@@ -119,7 +130,7 @@ const Hero = () => {
             <FaGithub />
           </motion.a>
           <motion.a
-            href="https://linkedin.com/in/yourusername"
+            href="https://www.linkedin.com/in/arya-putra-91140a331/"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.2 }}
@@ -128,7 +139,7 @@ const Hero = () => {
             <FaLinkedin />
           </motion.a>
           <motion.a
-            href="https://open.spotify.com/user/yourusername"
+            href="https://open.spotify.com/user/31ahivddeexh3ulrdzygtvonwbua?si=5ce606d0eef047b4"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.2 }}

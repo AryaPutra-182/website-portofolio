@@ -22,7 +22,6 @@ const Header = () => {
   }, []);
 
   return (
-    // Latar belakang akan berubah saat di-scroll
     <header 
       className={`fixed w-full top-0 z-50 transition-all duration-300
                  ${hasScrolled ? 'bg-black/50 backdrop-blur-lg shadow-lg' : 'bg-transparent'}`}
@@ -34,7 +33,7 @@ const Header = () => {
 
         {/* Navigasi Desktop - Font Putih & Efek Opacity */}
         <nav className="hidden md:flex items-center space-x-8">
-          <Link href="#about" className="text-white hover:opacity-75 transition-opacity duration-300">
+          <Link href="/about" className="text-white hover:opacity-75 transition-opacity duration-300">
             Tentang Saya
           </Link>
           <Link href="#projects" className="text-white hover:opacity-75 transition-opacity duration-300">
@@ -61,7 +60,7 @@ const Header = () => {
       {isMenuOpen && (
         <div className="md:hidden bg-black/90 backdrop-blur-xl absolute top-full left-0 w-full h-screen">
           <nav className="flex flex-col items-center justify-center h-2/3 space-y-8">
-            <Link href="#about" onClick={() => setIsMenuOpen(false)} className="text-2xl text-white hover:opacity-75 transition-opacity">
+            <Link href="/about" onClick={() => setIsMenuOpen(false)} className="text-2xl text-white hover:opacity-75 transition-opacity">
               Tentang Saya
             </Link>
             <Link href="#projects" onClick={() => setIsMenuOpen(false)} className="text-2xl text-white hover:opacity-75 transition-opacity">
