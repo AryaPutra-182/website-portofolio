@@ -3,10 +3,10 @@
 // Data proyek bisa diletakkan di sini atau diambil dari API
 const projectData = [
   {
-    title: "not available",
-    description: "soon",
+    title: "Sport Gear",
+    description: "Penyewaan Alat Olahraga",
     image: "/project1.png", // Ganti dengan screenshot proyek Anda
-    link: "#" // Ganti dengan link ke proyek
+    link: "sport-gear-37fj.vercel.app" // Ganti dengan link ke proyek
   },
   {
     title: "not avalable",
