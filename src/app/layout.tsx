@@ -6,8 +6,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Portfolio [Nama Anda]",
-  description: "Portfolio website yang dibuat dengan Next.js dan Tailwind CSS",
+  title: "Arya Putra",
+
 };
 
 export default function RootLayout({
