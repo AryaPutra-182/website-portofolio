@@ -18,7 +18,7 @@ export default function Home() {
         {/* <div id="about"><About /></div> */}
         {/* <div id="contact"><Contact /></div> */}
       </main>
-       <Footer /> {/* ✅ Footer dipanggil di sini */}
+       <Footer /> 
     </div>
   );
 }

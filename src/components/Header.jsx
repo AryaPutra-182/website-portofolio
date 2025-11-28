@@ -1,13 +1,15 @@
-// src/components/Header.tsx
-"use client"; // Diperlukan untuk useState dan useEffect
+'use client';
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FaBars, FaTimes } from 'react-icons/fa';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
 
+  // Deteksi Scroll untuk mengubah style navbar
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 20) {
@@ -21,58 +23,93 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Menu Items agar kode lebih bersih
+  const navLinks = [
+    { name: 'Home', href: '#hero' },
+    { name: 'About', href: '#about' }, // Sesuaikan href jika halaman beda
+    { name: 'Projects', href: '#projects' },
+  ];
+
   return (
-    <header 
-      className={`fixed w-full top-0 z-50 transition-all duration-300
-                 ${hasScrolled ? 'bg-black/50 backdrop-blur-lg shadow-lg' : 'bg-transparent'}`}
-    >
-      <div className="container mx-auto flex justify-between items-center p-4 md:p-5">
-        <Link href="/" className="text-2xl font-bold text-white">
-          Arya Putra
-        </Link>
-
-        {/* Navigasi Desktop - Font Putih & Efek Opacity */}
-        <nav className="hidden md:flex items-center space-x-8">
-          <Link href="/about" className="text-white hover:opacity-75 transition-opacity duration-300">
-            Tentang Saya
+    <>
+      <header
+        className={`fixed w-full top-0 z-50 transition-all duration-300 ${
+          hasScrolled
+            ? 'bg-gray-950/80 backdrop-blur-md border-b border-gray-800 py-3 shadow-lg'
+            : 'bg-transparent py-5'
+        }`}
+      >
+        <div className="container mx-auto flex justify-between items-center px-6 md:px-12">
+          
+          {/* --- LOGO --- */}
+          <Link href="/" className="text-2xl font-bold text-white tracking-wide">
+            Arya<span className="text-teal-400">.</span>
           </Link>
-          <Link href="#projects" className="text-white hover:opacity-75 transition-opacity duration-300">
-            Proyek
-          </Link>
-          <Link href="#contact" className="text-white hover:opacity-75 transition-opacity duration-300">
-            Kontak
-          </Link>
-        </nav>
 
-        {/* Tombol Hamburger untuk Mobile */}
-        <div className="md:hidden">
-          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-white focus:outline-none">
-            {isMenuOpen ? (
-              <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
-            ) : (
-              <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" /></svg>
-            )}
-          </button>
-        </div>
-      </div>
-
-      {/* Menu Mobile - Muncul saat Hamburger di-klik */}
-      {isMenuOpen && (
-        <div className="md:hidden bg-black/90 backdrop-blur-xl absolute top-full left-0 w-full h-screen">
-          <nav className="flex flex-col items-center justify-center h-2/3 space-y-8">
-            <Link href="/about" onClick={() => setIsMenuOpen(false)} className="text-2xl text-white hover:opacity-75 transition-opacity">
-              Tentang Saya
-            </Link>
-            <Link href="#projects" onClick={() => setIsMenuOpen(false)} className="text-2xl text-white hover:opacity-75 transition-opacity">
-              Proyek
-            </Link>
-            <Link href="#contact" onClick={() => setIsMenuOpen(false)} className="text-2xl text-white hover:opacity-75 transition-opacity">
-              Kontak
+          {/* --- DESKTOP NAV --- */}
+          <nav className="hidden md:flex items-center space-x-8">
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                href={link.href}
+                className="text-gray-300 hover:text-white text-sm font-medium transition-colors duration-300"
+              >
+                {link.name}
+              </Link>
+            ))}
+            
+            {/* CTA Button Khusus */}
+            <Link
+              href="#contact"
+              className="px-5 py-2 rounded-full border border-teal-500/50 text-teal-400 hover:bg-teal-500 hover:text-white transition-all duration-300 text-sm font-medium shadow-lg shadow-teal-500/10"
+            >
+              Let's Talk
             </Link>
           </nav>
+
+          {/* --- MOBILE TOGGLE --- */}
+          <div className="md:hidden">
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="text-gray-300 hover:text-white focus:outline-none transition-transform"
+            >
+              {isMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+            </button>
+          </div>
         </div>
-      )}
-    </header>
+      </header>
+
+      {/* --- MOBILE MENU OVERLAY (Animation) --- */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-40 bg-gray-950/95 backdrop-blur-xl md:hidden flex flex-col items-center justify-center space-y-8"
+          >
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                href={link.href}
+                onClick={() => setIsMenuOpen(false)}
+                className="text-2xl font-semibold text-gray-300 hover:text-teal-400 transition-colors"
+              >
+                {link.name}
+              </Link>
+            ))}
+            <Link
+               href="#contact"
+               onClick={() => setIsMenuOpen(false)}
+               className="text-2xl font-semibold text-teal-400"
+            >
+               Contact Me
+            </Link>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 
