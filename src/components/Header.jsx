@@ -26,7 +26,7 @@ const Header = () => {
   // Menu Items agar kode lebih bersih
   const navLinks = [
     { name: 'Home', href: '#hero' },
-    { name: 'About', href: '#about' }, // Sesuaikan href jika halaman beda
+    { name: 'About', href: '/about' }, 
     { name: 'Projects', href: '#projects' },
   ];
 

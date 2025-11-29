@@ -20,10 +20,10 @@ const itemVariant = {
 
 export default function AboutPage() {
   const infoList = [
-    { icon: <FaUser />, label: 'Nama', value: 'Arya Putra' },
-    { icon: <FaBirthdayCake />, label: 'Umur', value: '21 Tahun' },
-    { icon: <FaUniversity />, label: 'Status', value: 'Mahasiswa IT' },
-    { icon: <FaMapMarkerAlt />, label: 'Domisili', value: 'Pasuruan, Jatim' },
+    { label: 'Nama', value: 'Arya Putra' },
+    { label: 'Umur', value: '21 Tahun' },
+    { label: 'Status', value: 'Mahasiswa IT' },
+    { label: 'Domisili', value: 'Pasuruan, Jatim' },
   ];
 
   return (
@@ -47,7 +47,7 @@ export default function AboutPage() {
              About <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-blue-500">Me</span>
            </h1>
            <p className="text-gray-400 max-w-xl mx-auto">
-             Mengenal lebih dekat siapa saya, apa yang saya kerjakan, dan musik yang menemani hari-hari saya.
+             sicMundus
            </p>
         </motion.div>
 
@@ -60,17 +60,14 @@ export default function AboutPage() {
             className="md:col-span-2 bg-gray-900/50 backdrop-blur-sm border border-gray-800 p-8 rounded-2xl shadow-xl hover:border-gray-700 transition-colors"
           >
             <h2 className="text-2xl font-semibold text-white mb-4 flex items-center gap-2">
-              👋 Hello There!
+               Hello There!
             </h2>
             <div className="space-y-4 text-lg leading-relaxed text-gray-400">
               <p>
-                Saya adalah seorang <span className="text-teal-400 font-medium">Junior Developer</span> yang sedang menempuh studi
-                Teknik Informatika di <span className="text-white">Institut Teknologi Nasional Malang</span>.
+                Halo semuanya !! nothing special with me.
               </p>
-              <p>
-                Ketertarikan saya terletak pada dunia <span className="text-blue-400 font-medium">Modern Web Development</span>. 
-                Saya menikmati proses mengubah baris kode menjadi antarmuka yang indah dan fungsional menggunakan 
-                ekosistem React dan Laravel.
+               <p>
+                Saya hanya mahasiswa yang cukup senang mengerjakan sesuatu untuk mengisi waktu luang saya. Terima kasih sudah mau membuka halaman ini.
               </p>
             </div>
           </motion.div>
@@ -84,9 +81,7 @@ export default function AboutPage() {
                 whileHover={{ scale: 1.02 }}
                 className="bg-gray-800/40 border border-gray-700/50 p-4 rounded-xl flex items-center gap-4 hover:bg-gray-800/60 transition-colors"
               >
-                <div className="p-3 bg-teal-500/10 rounded-lg text-teal-400 text-xl">
-                  {info.icon}
-                </div>
+                
                 <div>
                   <h4 className="text-xs text-gray-500 uppercase tracking-wider">{info.label}</h4>
                   <p className="text-white font-medium">{info.value}</p>
@@ -121,7 +116,7 @@ export default function AboutPage() {
                 </span>
              </div>
             <iframe
-              src="https://open.spotify.com/embed/playlist/37i9dQZF1DX0XUfTFmNBRM?utm_source=generator" // Ganti dengan URL Embed Playlist Spotify Anda yang asli
+              src="https://open.spotify.com/embed/playlist/2mZfYUn2R2ZrUcC8P3sDKY?utm_source=generator&theme=0" // Ganti dengan URL Embed Playlist Spotify Anda yang asli
               width="100%"
               height="152"
               frameBorder="0"
